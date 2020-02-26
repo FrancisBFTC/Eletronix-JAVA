@@ -71,7 +71,7 @@ public class Conversor extends JFrame implements NativeMouseInputListener{
 		this.setUndecorated(true);
 		
 		ImageIcon icon;
-		icon = new ImageIcon(getClass().getResource("/base/conversor/Eletronix.png"));
+		icon = new ImageIcon(getClass().getResource("/base/image/Eletronix.png"));
 		this.setIconImage(icon.getImage());
 		
 		ImageIcon image = new ImageIcon(this.getClass().getResource("/base/image/Setas.jpg"));
@@ -95,7 +95,7 @@ public class Conversor extends JFrame implements NativeMouseInputListener{
 		title.setBounds(20, 3, 140, 20);
 		head.add(title);
 		
-		ImageIcon iconTitle1 = new ImageIcon(this.getClass().getResource("/base/image/1496676743-rounded-high-ultra-colour10-circuit-board_84619.png"));
+		ImageIcon iconTitle1 = new ImageIcon(this.getClass().getResource("/base/image/Eletronix.png"));
 		iconTitle1.setImage(iconTitle1.getImage().getScaledInstance(15, 15, 100));
 		
 		JLabel titleImg = new JLabel();
