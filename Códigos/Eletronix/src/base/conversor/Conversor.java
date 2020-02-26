@@ -15,12 +15,15 @@ import org.jnativehook.NativeHookException;
 import org.jnativehook.mouse.NativeMouseEvent;
 import org.jnativehook.mouse.NativeMouseInputListener;
 
+import base.conversor.*;
+
 
 
 public class Conversor extends JFrame implements NativeMouseInputListener{
 	
 	private boolean isPressed;
 	private int click = 0;
+	private static GlobalScreen global;
 	@Override
 	public void nativeMouseClicked(NativeMouseEvent arg0) {}
 
@@ -62,12 +65,14 @@ public class Conversor extends JFrame implements NativeMouseInputListener{
 	
 	public Conversor(){
 		
-		ImageIcon iconTitle = new ImageIcon(this.getClass().getResource("/base/image/1496676743-rounded-high-ultra-colour10-circuit-board_84619.png"));
-		this.setIconImage(iconTitle.getImage());
+		
 		this.setTitle("Eletronix Conversor");
 		this.setBounds(250, 190, 550, 350);
 		this.setUndecorated(true);
 		
+		ImageIcon icon;
+		icon = new ImageIcon(getClass().getResource("/base/conversor/Eletronix.png"));
+		this.setIconImage(icon.getImage());
 		
 		ImageIcon image = new ImageIcon(this.getClass().getResource("/base/image/Setas.jpg"));
 		image.setImage(image.getImage().getScaledInstance(30, 20, 100));
@@ -673,12 +678,15 @@ public class Conversor extends JFrame implements NativeMouseInputListener{
 		Conversor Eletronix = new Conversor();
 		Eletronix.setVisible(true);
 		
-		GlobalScreen.addNativeMouseListener(Eletronix);
-        GlobalScreen.addNativeMouseMotionListener(Eletronix);
+		try {
+			global.registerNativeHook();
+			global.addNativeMouseListener(Eletronix);
+			global.addNativeMouseMotionListener(Eletronix);
+		} catch (NativeHookException e) {
+			e.printStackTrace();
+		}
+
+
 	}
-
-	
-	
-
 	
 }
